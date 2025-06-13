@@ -1,10 +1,10 @@
 {
-  "name": "yt-snatch",
+  "name": "YT-Snatch",
   "version": "1.0.0",
-  "description": "YT-Snatch",
+  "description": "Free youtube downloader for everyone",
   "main": "./out/main/index.js",
   "author": "chrstnmmnl",
-  "homepage": "https://electron-vite.org",
+  "homepage": "https://github.com/chrstnmmn/YT-Snatch",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",
