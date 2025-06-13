@@ -1,0 +1,87 @@
+{
+  "name": "yt-snatch",
+  "version": "1.0.0",
+  "description": "YT-Snatch",
+  "main": "./out/main/index.js",
+  "author": "chrstnmmnl",
+  "homepage": "https://electron-vite.org",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint --cache .",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "clean": "rimraf dist node_modules package-lock.json",
+    "build": "electron-vite build",
+    "build:win": "npm run build && electron-builder --win",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.1",
+    "@electron-toolkit/utils": "^3.0.0",
+    "electron-updater": "^6.3.9",
+    "puppeteer": "^24.6.1"
+  },
+  "devDependencies": {
+    "@electron-toolkit/eslint-config": "^2.0.0",
+    "@electron-toolkit/eslint-config-prettier": "^3.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.16",
+    "electron": "^35.1.5",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^3.1.0",
+    "eslint": "^9.24.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "install": "^0.13.0",
+    "postcss": "^8.4.31",
+    "prettier": "^3.5.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^3.3.3",
+    "vite": "^6.2.6"
+  },
+  "build": {
+    "files": [
+      "!**/node_modules/**/*",
+      "out/**/*",
+      "node_modules/@electron-toolkit/**"
+    ],
+    "extraResources": [
+      {
+        "from": "node_modules/@electron-toolkit",
+        "to": "node_modules/@electron-toolkit"
+      },
+      {
+        "from": "src/renderer/src/assets",
+        "to": "renderer/assets"
+      }
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/@electron-toolkit/**",
+      "out/preload/index.js"
+    ],
+    "win": {
+      "target": "nsis",
+      "extraResources": [],
+      "extraFiles": []
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "include": "installer/installer.nsh",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": false,
+      "menuCategory": true
+    }
+  }
+}
