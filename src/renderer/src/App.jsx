@@ -52,7 +52,6 @@ function RenderPage() {
   if (isDownloading) {
     return (
       <section className={bodyStyle}>
-        <Logo />
         <ProgressSection
           setDownloading={setDownloading}
           setDownloadComplete={setDownloadComplete}
@@ -63,7 +62,6 @@ function RenderPage() {
 
   return (
     <section className={bodyStyle}>
-      <Logo />
       <InputFieldSection setDownloading={setDownloading} />
     </section>
   )
