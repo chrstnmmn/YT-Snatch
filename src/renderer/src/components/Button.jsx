@@ -1,6 +1,10 @@
 // Icons component
 function Icons({ icon, iconPosition }) {
-  return <img src={icon} className={iconPosition} alt="icon" />
+  return typeof icon === 'string' ? (
+    <img src={icon} className={iconPosition} alt="icon" />
+  ) : (
+    <span className={iconPosition}>{icon}</span>
+  )
 }
 
 // Button component

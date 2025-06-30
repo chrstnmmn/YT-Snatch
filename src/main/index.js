@@ -369,7 +369,7 @@ class ElectronApp {
     // File dialogs
     ipcMain.handle('open-directory-dialog', async () => {
       const result = await dialog.showOpenDialog({
-        properties: ['openDirectory']
+        properties: ['selected-folder']
       })
 
       if (!result.canceled && result.filePaths.length > 0) {
