@@ -382,6 +382,11 @@ class ElectronApp {
     ipcMain.on('close-app', () => {
       app.quit()
     })
+    ipcMain.on('minimize-app', () => {
+      if (this.mainWindow && !this.mainWindow.isDestroyed()) {
+        this.mainWindow.minimize()
+      }
+    })
   }
 
   async verifyDependencies() {

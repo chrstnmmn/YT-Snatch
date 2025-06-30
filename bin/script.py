@@ -2,7 +2,6 @@ import sys
 import yt_dlp
 import os
 import datetime
-import platform
 import threading
 import time
 

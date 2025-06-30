@@ -18,6 +18,13 @@ function ExitButton() {
   )
 }
 
+function MinimizeButton() {
+  const handleMinimize = () => {
+    console.log('App minimized')
+    window.api.send('minimize-app')
+  }
+}
+
 function TitleBar() {
   return (
     <div className="w-[100vw] flex justify-end px-3 py-3 relative md:absolute top-0 drag">
